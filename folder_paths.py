@@ -6,8 +6,10 @@ supported_pt_extensions = set(['.ckpt', '.pt', '.bin', '.pth', '.safetensors'])
 
 folder_names_and_paths = {}
 
+mount_path = '/var/nfs-mount/Passion-ComfyUI-Volumes'
+
 base_path = os.path.dirname(os.path.realpath(__file__))
-models_dir = os.path.join(base_path, "models")
+models_dir = os.path.join(mount_path, "models")
 folder_names_and_paths["checkpoints"] = ([os.path.join(models_dir, "checkpoints")], supported_pt_extensions)
 folder_names_and_paths["configs"] = ([os.path.join(models_dir, "configs")], [".yaml"])
 
@@ -26,7 +28,7 @@ folder_names_and_paths["gligen"] = ([os.path.join(models_dir, "gligen")], suppor
 
 folder_names_and_paths["upscale_models"] = ([os.path.join(models_dir, "upscale_models")], supported_pt_extensions)
 
-folder_names_and_paths["custom_nodes"] = ([os.path.join(base_path, "custom_nodes")], [])
+folder_names_and_paths["custom_nodes"] = ([os.path.join(mount_path, "custom_nodes")], [])
 
 folder_names_and_paths["hypernetworks"] = ([os.path.join(models_dir, "hypernetworks")], supported_pt_extensions)
 
